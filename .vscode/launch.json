@@ -1,0 +1,39 @@
+{
+    "configurations": [
+        {
+            "name": "[Linux/Windows] [Debug] [GDB]",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/.vscode/exe_${fileBasenameNoExtension}",
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "preLaunchTask": "[Linux/Windows] [Debug]",
+            "windows": {
+                "postDebugTask": "[Clean] No Confirm"
+            },
+            "linux": {
+                "postDebugTask": "[Linux] [Clean] No Confirm"
+            },
+        },
+        {
+            "name": "[Linux/Windows] [Release]",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/.vscode/exe_${fileBasenameNoExtension}",
+            "cwd": "${fileDirname}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "preLaunchTask": "[Linux/Windows] [Release]",
+            "windows": {
+                "postDebugTask": "[Clean] No Confirm"
+            },
+            "linux": {
+                "postDebugTask": "[Linux] [Clean] No Confirm"
+            }
+        },
+    ],
+    "version": "2.0.0"
+}

@@ -1,0 +1,80 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        //! [Linux/Windows] [Debug]
+        {
+            "type": "cppbuild",
+            "label": "[Linux/Windows] [Debug]",
+            // "linux": "bash", // DEFAULT
+            "command": "g++",
+            "args": [
+                "-Wall",
+                "-std=gnu++20",
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${workspaceFolder}/.vscode/exe_${fileBasenameNoExtension}"
+            ],
+            "presentation": {
+                "reveal": "silent",
+                "clear": true
+            },
+            "options": {
+                "cwd": "${fileDirname}",
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "detail": "gnu++20"
+        },
+        //! [Linux/Windows] [Release]
+        {
+            "type": "cppbuild",
+            "label": "[Linux/Windows] [Release]",
+            // "linux": "bash", // DEFAULT
+            "command": "g++",
+            "args": [
+                "-fno-tree-ch",
+                "-O2",
+                "-Wall",
+                "-std=gnu++20",
+                "-pipe",
+                "${file}",
+                "-lm",
+                "-o",
+                "${workspaceFolder}/.vscode/exe_${fileBasenameNoExtension}"
+            ],
+            "presentation": {
+                "reveal": "silent",
+                "clear": true
+            },
+            "options": {
+                "cwd": "${fileDirname}",
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "detail": "gnu++20, release"
+        },
+        // ![Windows] [Clean] No Confirm
+        {
+            "type": "shell",
+            "label": "[Clean] No Confirm",
+            "command": "${workspaceFolder}/.vscode/clean_noConfirm.bat",
+            "presentation": {
+                "reveal": "silent",
+            },
+            "args": [
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": []
+        },
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "mingw64",
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "c23",
+            "cppStandard": "gnu++20",
+            "intelliSenseMode": "windows-gcc-x64",
+            "compilerPath": "D:/Build_Tool_Lib/x86_64-15.1.0-release-win32-seh-msvcrt-rt_v12-rev0/mingw64/bin/g++.exe"
+        },
+        {
+            "name": "gnu linux",
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "c23",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerPath": "/usr/bin/g++"
+        }
+    ],
+    "version": 4
+}
