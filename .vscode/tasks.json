@@ -1,7 +1,6 @@
 {
     "version": "2.0.0",
     "tasks": [
-        //! [Linux/Windows] [Debug]
         {
             "type": "cppbuild",
             "label": "[Linux/Windows] [Debug]",
@@ -31,7 +30,6 @@
             },
             "detail": "gnu++20"
         },
-        //! [Linux/Windows] [Release]
         {
             "type": "cppbuild",
             "label": "[Linux/Windows] [Release]",
@@ -63,18 +61,27 @@
             },
             "detail": "gnu++20, release"
         },
-        // ![Windows] [Clean] No Confirm
         {
             "type": "shell",
             "label": "[Clean] No Confirm",
-            "command": "${workspaceFolder}/.vscode/clean_noConfirm.bat",
+            "options": {
+                "shell": {
+                    "executable": "wsl",
+                }
+            },
+            "command": "find . \\( -name '*.exe' -o -name 'exe_*' \\) -print -delete",
             "presentation": {
                 "reveal": "silent",
             },
-            "args": [
-                "${workspaceFolder}"
-            ],
             "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "[Linux] [Clean] No Confirm",
+            "command": "find . \\( -name '*.exe' -o -name 'exe_*' \\) -print -delete",
+            "presentation": {
+                "reveal": "silent",
+            }
         },
     ]
 }
