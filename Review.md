@@ -43,14 +43,14 @@ Some miscellanies: accurate up means round
 
 # TODO List
 
-## Thery Prof
+## Theory Prove
 
-- [ ] 1033 Prove the pesudo-dijkstra algorithm
+- [x] 1033 Prove the pesudo-dijkstra algorithm
 - [x] 1067 Prove the reverse algorithm
 
 ## More Simplified Code
 
 - [x] 1012, 1018 is too complex
-- [ ] 1039, 1045 ~~why bit operator << is slower than multuply *~~(bitwise op is lower than plus), why ~~unordered_map is slower than vector and map~~(hash cost and confilct cost)?
+- [x] 1039, 1045 ~~why bit operator << is slower than multuply *~~(bitwise op is lower than plus), why ~~unordered_map is slower than vector and map~~(hash cost and confilct cost)?
 - [ ] 1040 Change to DP.
 - [x] 1010 Maybe some shitty overflow controll can be simplified.
