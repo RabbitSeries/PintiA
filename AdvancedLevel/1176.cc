@@ -3,14 +3,13 @@ using namespace std;
 int rectantCnt, productCnt, equationCnt;
 set<string> rectants;
 vector<string> products, selections;
-map<string, vector<set<string>>> equations;
+map<string, vector<set<string>>> equations;  // (product, lhs)
 vector<int> intervals;
-int printEquation( int group, int curSelection ) {
+void printEquation( int group, int& curSelection ) {
     for ( int i = 0; i < intervals[group]; i++, curSelection++ ) {
         cout << ( i ? " + " : "" ) << selections[curSelection];
     }
     cout << " -> " << products[group] << endl;
-    return curSelection;
 }
 void DFS( vector<int>& lhsLens, vector<string>& curSelection, int pId = 0 ) {
     if ( pId == productCnt ) {
@@ -25,15 +24,11 @@ void DFS( vector<int>& lhsLens, vector<string>& curSelection, int pId = 0 ) {
             return lhs.contains( rectant );
         } );
         if ( !isOverlapping ) {
-            for ( auto const& rectant : lhs ) {
-                curSelection.emplace_back( rectant );
-            }
+            copy( lhs.begin(), lhs.end(), back_inserter( curSelection ) );  // also: curSelection.insert( curSelection.end(), lhs.begin(), lhs.end() );
             lhsLens.emplace_back( lhs.size() );
             DFS( lhsLens, curSelection, pId + 1 );
+            curSelection.resize( curSelection.size() - lhs.size() );
             lhsLens.pop_back();
-            for ( auto const& _ : lhs ) {
-                curSelection.pop_back();
-            }
         }
     }
 }
@@ -46,10 +41,10 @@ int main() {
     }
     cin >> productCnt;
     products.resize( productCnt );
-    for ( int i = 0; i < productCnt; i++ ) {
-        cin >> products[i];
-        if ( rectants.contains( products[i] ) ) {
-            equations[products[i]].emplace_back( set( { products[i] } ) );
+    for ( string& p : products ) {
+        cin >> p;
+        if ( rectants.contains( p ) ) {
+            equations[p].emplace_back( set( { p } ) );
         }
     }
     cin >> equationCnt;
@@ -60,7 +55,7 @@ int main() {
                 lhs.emplace( move( rectant ) );
             }
         }
-        if ( string product; cin >> product && all_of( lhs.begin(), lhs.end(), [&]( const string& rec ) { return rectants.contains( rec ); } ) ) {  // Filter
+        if ( string product; cin >> product && all_of( lhs.begin(), lhs.end(), [&]( const string& e ) { return rectants.contains( e ); } ) ) {  // Filter
             equations[product].emplace_back( move( lhs ) );
         }
     }
@@ -68,6 +63,6 @@ int main() {
     vector<string> curSelection;
     DFS( lhsLens, curSelection );
     for ( int i = 0, selectionI = 0; i < productCnt; i++ ) {
-        selectionI = printEquation( i, selectionI );
+        printEquation( i, selectionI );
     }
 }

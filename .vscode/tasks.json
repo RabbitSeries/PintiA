@@ -26,7 +26,8 @@
                 "$gcc"
             ],
             "group": {
-                "kind": "build"
+                "kind": "build",
+                "isDefault": true
             },
             "detail": "gnu++20"
         },
