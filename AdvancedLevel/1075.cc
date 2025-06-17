@@ -38,20 +38,18 @@ int main() {
     sort( scores.begin(), scores.end(), [&]( stuInfo const& lhs, stuInfo const& rhs ) {
         if ( lhs.sum != rhs.sum ) {
             return lhs.sum > rhs.sum;
-        } else {
-            if ( lhs.solvecnt != rhs.solvecnt ) {
-                return lhs.solvecnt > rhs.solvecnt;
-            }
-            return lhs.uid < rhs.uid;
         }
+        if ( lhs.solvecnt != rhs.solvecnt ) {
+            return lhs.solvecnt > rhs.solvecnt;
+        }
+        return lhs.uid < rhs.uid;
     } );
     for ( int i = 1; i < userCnt; i++ ) {
         scores[i].rank = scores[i].sum == scores[i - 1].sum ? scores[i - 1].rank : i + 1;
     }
     for ( int i = 0; i < userCnt; i++ ) {
         stuInfo& stu = scores[i];
-        auto isValid = []( optional<int>& grade ) { return grade.has_value() && grade.value() >= 0; };
-        if ( !any_of( stu.submits.begin(), stu.submits.end(), isValid ) ) {
+        if ( !any_of( stu.submits.begin(), stu.submits.end(), []( optional<int>& grade ) { return grade.has_value() && grade.value() >= 0; } ) ) {
             continue;
         }
         cout << stu.rank << " " << right << setfill( '0' ) << setw( 5 ) << stu.uid << " " << stu.sum;
