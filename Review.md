@@ -35,11 +35,12 @@ Some miscellanies: accurate up means round
 ## Graph
 
 - A1021 : Deepest node problem
+- A1087 : Dijkstra Path finding + DP
 
 ## DP
 
-- A1068: 0/1 DP + Greedy print package
-
+- A1068: 0/1 DP + Greedy print packages
+- A1093: Simple and effective
 
 # TODO List
 
@@ -56,3 +57,6 @@ Some miscellanies: accurate up means round
 - [x] 1010 Maybe some shitty overflow controll can be simplified.
 - [ ] 1053
 - [ ] Remove all get<size_t>(tuple)
+
+## Time efficiency
+- 0.3~0.5*10^8 ~ 150ms 

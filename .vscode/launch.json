@@ -10,7 +10,7 @@
             "environment": [],
             "MIMode": "gdb",
             "miDebuggerPath": "gdb",
-            "preLaunchTask": "[Linux/Windows] [Debug]",
+            // "preLaunchTask": "[Linux/Windows] [Debug]",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -24,12 +24,12 @@
                 }
             ],
             "internalConsoleOptions": "neverOpen",
-            "windows": {
-                "postDebugTask": "[Clean] No Confirm"
-            },
-            "linux": {
-                "postDebugTask": "[Linux] [Clean] No Confirm"
-            },
+            // "windows": {
+            //     "postDebugTask": "[Clean] No Confirm"
+            // },
+            // "linux": {
+            //     "postDebugTask": "[Linux] [Clean] No Confirm"
+            // },
         },
         {
             "name": "[Linux/Windows] [Release]",
